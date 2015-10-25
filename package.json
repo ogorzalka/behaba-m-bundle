@@ -54,7 +54,6 @@
     "postcss-import":            "^7.0.0",
     "swig":                      "^1.4.2",
     "uglify-js":                 "^2.5.0",
-    "path":                      "latest",
     "node-sass":                 "latest"
   },
 
