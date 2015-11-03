@@ -4,6 +4,7 @@ import postcss from 'postcss';
 import pcimport from 'postcss-import';
 import pcprops from 'postcss-custom-properties';
 import pcmedia from 'postcss-custom-media';
+import pcsvgfallback from 'postcss-svg-fallback';
 import pccalc from 'postcss-calc';
 import pccolor from 'postcss-color-function';
 import pcprefix from 'autoprefixer';
@@ -28,6 +29,7 @@ export default function (options) {
           pcimport(options['import']),
           pcprops(options['props']),
           pcmedia(options['media']),
+          pcsvgfallback(),
           pccalc(),
           pccolor(),
           pcprefix()

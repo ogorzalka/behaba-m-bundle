@@ -22,6 +22,10 @@ var _postcssCustomMedia = require('postcss-custom-media');
 
 var _postcssCustomMedia2 = _interopRequireDefault(_postcssCustomMedia);
 
+var _postcssSvgFallback = require('postcss-svg-fallback');
+
+var _postcssSvgFallback2 = _interopRequireDefault(_postcssSvgFallback);
+
 var _postcssCalc = require('postcss-calc');
 
 var _postcssCalc2 = _interopRequireDefault(_postcssCalc);
@@ -52,7 +56,7 @@ exports['default'] = function (options) {
 
   var processor = function processor(contents, callback) {
     try {
-      var result = (0, _postcss2['default'])([(0, _postcssImport2['default'])(options['import']), (0, _postcssCustomProperties2['default'])(options['props']), (0, _postcssCustomMedia2['default'])(options['media']), (0, _postcssCalc2['default'])(), (0, _postcssColorFunction2['default'])(), (0, _autoprefixer2['default'])()]).process(contents);
+      var result = (0, _postcss2['default'])([(0, _postcssImport2['default'])(options['import']), (0, _postcssCustomProperties2['default'])(options['props']), (0, _postcssCustomMedia2['default'])(options['media']), (0, _postcssSvgFallback2['default'])(), (0, _postcssCalc2['default'])(), (0, _postcssColorFunction2['default'])(), (0, _autoprefixer2['default'])()]).process(contents);
 
       callback(null, result);
     } catch (err) {

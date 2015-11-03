@@ -52,6 +52,7 @@
     "postcss-custom-media":      "^5.0.0",
     "postcss-custom-properties": "^5.0.0",
     "postcss-import":            "^7.0.0",
+    "postcss-svg-fallback":      "^1.1.0",
     "swig":                      "^1.4.2",
     "uglify-js":                 "^2.5.0",
     "node-sass":                 "^3.4.0",
