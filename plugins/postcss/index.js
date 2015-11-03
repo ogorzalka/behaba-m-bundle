@@ -21,7 +21,7 @@ export default function (options) {
   let processor = function (contents, callback) {
     try {
       let result = postcss([
-          pcsvgfallback(),
+          pcsvgfallback(options['svg_fallback']),
           pcprefix()
         ])
         .process(contents);
