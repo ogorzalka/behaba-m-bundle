@@ -1,12 +1,7 @@
 'use strict';
 
 import postcss from 'postcss';
-import pcimport from 'postcss-import';
-import pcprops from 'postcss-custom-properties';
-import pcmedia from 'postcss-custom-media';
 import pcsvgfallback from 'postcss-svg-fallback';
-import pccalc from 'postcss-calc';
-import pccolor from 'postcss-color-function';
 import pcprefix from 'autoprefixer';
 
 import {parallel} from 'async';
@@ -26,12 +21,7 @@ export default function (options) {
   let processor = function (contents, callback) {
     try {
       let result = postcss([
-          pcimport(options['import']),
-          pcprops(options['props']),
-          pcmedia(options['media']),
           pcsvgfallback(),
-          pccalc(),
-          pccolor(),
           pcprefix()
         ])
         .process(contents);
