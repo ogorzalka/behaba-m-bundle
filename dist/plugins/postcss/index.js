@@ -36,9 +36,10 @@ exports['default'] = function (options) {
 
   var processor = function processor(contents, callback) {
     try {
-      var result = (0, _postcss2['default'])([(0, _postcssSvgFallback2['default'])(options['svg_fallback']), (0, _autoprefixer2['default'])()]).process(contents);
-
-      callback(null, result);
+      (0, _postcss2['default'])().use((0, _postcssSvgFallback2['default'])(options['svg_fallback'])).use(_autoprefixer2['default']).process(contents).then(function (processor) {
+        var result = processor.toString();
+        callback(null, result);
+      });
     } catch (err) {
       callback(err);
     }

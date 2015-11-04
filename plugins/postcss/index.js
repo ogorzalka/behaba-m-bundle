@@ -20,13 +20,14 @@ export default function (options) {
 
   let processor = function (contents, callback) {
     try {
-      let result = postcss([
-          pcsvgfallback(options['svg_fallback']),
-          pcprefix()
-        ])
-        .process(contents);
-
-      callback(null, result);
+      postcss()
+        .use(pcsvgfallback(options['svg_fallback']))
+        .use(pcprefix)
+        .process(contents)
+        .then(function(processor) {
+            let result = processor.toString();
+            callback(null, result);
+        });
     } catch (err) {
       callback(err);
     }
