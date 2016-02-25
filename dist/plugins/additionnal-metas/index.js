@@ -1,5 +1,7 @@
 "use strict";
 
+var moment = require('moment');
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -12,6 +14,8 @@ function getFileExtension(filename) {
 exports["default"] = function () {
   return function (files) {
     var explodePath, slug;
+
+    moment.locale('fr');
 
     Object.keys(files).forEach(function (filename) {
       if (!files[filename].filename) {
@@ -27,10 +31,12 @@ exports["default"] = function () {
             }
           }
           files[filename].slug = slug;
+
+          files[filename].postdate = moment(files[filename].date, "YYYY-MM-DD").fromNow();
         }
       }
     });
   };
 };
 
-module.exports = exports["default"];
+module.exports = exports['default'];

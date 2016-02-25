@@ -1,11 +1,10 @@
 (function() {
   'use strict';
 
-  var nsg = require('node-sprite-generator'),
+  var sprity = require('sprity'),
 
   createSprite = function createSprite(config, files, metalsmith, done) {
-
-    nsg(config, done);
+    sprity.create(config, done);
     
     /**
      * Looks up different key names on `metalsmith` to support
