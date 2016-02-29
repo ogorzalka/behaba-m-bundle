@@ -6,7 +6,7 @@ Object.defineProperty(exports, '__esModule', {
 
 var _utils = require('../../utils');
 
-var log = (0, _utils.debug)('metalsmith:tags');
+var log = (0, _utils.debug)('metalsmith:categories');
 
 var DEFAULTS = {
   weights: ['s', 'm', 'l']
@@ -24,33 +24,33 @@ exports['default'] = function (options) {
     var metadata = metalsmith.metadata();
     var collections = metadata.collections;
 
-    var tags = (0, _utils.reduce)(collections[index.collection], function (memo, data) {
-      (0, _utils.each)(data.tags, function (tag) {
-        if (memo[tag] == null) {
-          memo[tag] = [];
+    var categories = (0, _utils.reduce)(collections[index.collection], function (memo, data) {
+      (0, _utils.each)(data.categories, function (category) {
+        if (memo[category] == null) {
+          memo[category] = [];
         }
 
-        memo[tag].push(data);
+        memo[category].push(data);
       });
 
       return memo;
     }, {});
 
-    var biggest = (0, _utils.max)((0, _utils.pluck)(tags, 'length'));
+    var biggest = (0, _utils.max)((0, _utils.pluck)(categories, 'length'));
 
     log('adding index %s with attributes %o', index.path, (0, _utils.omit)(index, 'collection'));
     files[index.path] = index;
 
-    index.collection = (0, _utils.map)(tags, function (items, tag) {
-      var slug = tag.toLowerCase().replace(/\s+/, '-');
-      var title = tag.replace(/(.*)/, individual.title);
-      var subtitle = tag.replace(/(.*)/, individual.subtitle);
+    index.collection = (0, _utils.map)(categories, function (items, category) {
+      var slug = category.toLowerCase().replace(/\s+/, '-');
+      var title = category.replace(/(.*)/, individual.title);
+      var subtitle = category.replace(/(.*)/, individual.title);
       var file = slug.replace(/(.*)/, individual.path);
       var weight = Math.round((weights.length - 1) * items.length / biggest);
 
       return (0, _utils.extend)({}, individual, {
         path: file,
-        name: tag,
+        name: category,
         title: title,
         subtitle: subtitle,
         collection: items,
@@ -65,11 +65,11 @@ exports['default'] = function (options) {
       return a > b ? 1 : a < b ? -1 : 0;
     };
 
-    log('sorting tags in index %s', index.path);
+    log('sorting categories in index %s', index.path);
     index.collection.sort(comparator);
 
     (0, _utils.each)(index.collection, function (data) {
-      log('adding tag %s with attributes %o', data.path, (0, _utils.omit)(data, 'collection'));
+      log('adding category %s with attributes %o', data.path, (0, _utils.omit)(data, 'collection'));
       files[data.path] = data;
     });
 

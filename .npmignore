@@ -1,5 +1,4 @@
 /node_modules/
 /npm-debug.log
 *.esproj
-*.espressostorage
 .DS_Store

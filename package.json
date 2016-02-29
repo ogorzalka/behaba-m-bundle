@@ -1,64 +1,79 @@
 {
-  "name":        "metalsmith-bundle",
+  "name": "metalsmith-bundle",
   "description": "Bundle of Metalsmith plugins.",
-  "version":     "1.0.4",
-  "license":     "MIT",
-
+  "version": "1.0.4",
+  "license": "MIT",
   "main": "dist/index.js",
-
   "author": {
-    "name":  "Daniel Perez Alvarez",
+    "name": "Daniel Perez Alvarez",
     "email": "unindented@gmail.com",
-    "url":   "http://unindented.org/"
+    "url": "http://unindented.org/"
   },
-
   "repository": {
     "type": "git",
-    "url":  "git://github.com/unindented/metalsmith-bundle.git"
+    "url": "git://github.com/unindented/metalsmith-bundle.git"
   },
-
   "scripts": {
     "build": "babel --out-dir dist --ignore dist,node_modules ."
   },
-
   "dependencies": {
-    "async":                     "^1.4.2",
-    "autoprefixer":              "^6.0.3",
-    "browser-sync":              "^2.9.11",
-    "browserify":                "^11.2.0",
-    "cheerio":                   "^0.19.0",
-    "clean-css":                 "^3.4.6",
-    "consolidate":               "^0.13.1",
-    "debug":                     "^2.2.0",
-    "gaze":                      "^0.5.1",
-    "highlight.js":              "^8.8.0",
-    "html-minifier":             "^0.8.0",
-    "lodash":                    "^3.10.1",
-    "markdown-it":               "^5.0.0",
-    "markdown-it-abbr":          "^1.0.0",
-    "markdown-it-container":     "^2.0.0",
-    "markdown-it-deflist":       "^2.0.0",
-    "markdown-it-footnote":      "^2.0.0",
-    "markdown-it-ins":           "^2.0.0",
-    "markdown-it-mark":          "^2.0.0",
-    "markdown-it-sub":           "^1.0.0",
-    "markdown-it-sup":           "^1.0.0",
-    "metalsmith":                "^2.0.1",
-    "minimist":                  "^1.2.0",
-    "multimatch":                "^2.0.0",
-    "postcss":                   "^5.0.10",
-    "postcss-calc":              "^5.0.0",
-    "postcss-color-function":    "^2.0.0",
-    "postcss-custom-media":      "^5.0.0",
-    "postcss-custom-properties": "^5.0.0",
-    "postcss-import":            "^7.0.0",
-    "postcss-move-media":        "latest",
-    "swig":                      "^1.4.2",
-    "uglify-js":                 "^2.5.0",
-    "node-sass":                 "latest"
+    "is": "^3.0.1",
+    "lodash.identity": "^3.0.0",
+    "lodash.pick": "^3.1.0",
+    "sitemap": "^1.4.0",
+    "slash": "^1.0.0",
+    "string": "^3.3.1",
+    "async": "^1.5.0",
+    "autoprefixer": "^6.0.3",
+    "browser-sync": "^2.9.11",
+    "browserify": "^11.2.0",
+    "cheerio": "^0.19.0",
+    "clean-css": "^3.4.6",
+    "consolidate": "^0.13.1",
+    "debug": "^2.2.0",
+    "gaze": "^0.5.1",
+    "highlight.js": "^8.8.0",
+    "color-scheme": "^0.0.5",
+    "html-minifier": "^1.0.0",
+    "lodash": "^3.10.1",
+    "markdown-it": "^5.0.0",
+    "markdown-it-abbr": "^1.0.0",
+    "markdown-it-container": "^2.0.0",
+    "markdown-it-deflist": "^2.0.0",
+    "markdown-it-footnote": "^2.0.0",
+    "markdown-it-ins": "^2.0.0",
+    "markdown-it-mark": "^2.0.0",
+    "markdown-it-sub": "^1.0.0",
+    "markdown-it-sup": "^1.0.0",
+    "metalsmith": "^2.0.1",
+    "moment": "^2.10.6",
+    "minimist": "^1.2.0",
+    "multimatch": "^2.0.0",
+    "minimatch": "^3.0.0",
+    "postcss": "^5.0.10",
+    "postcss-svg-fallback": "^1.1.0",
+    "sprity": "^1.0.7",
+    "sprity-sass": "^1.0.4",
+    "sprity-gm": "^1.0.2",
+    "gm": "^1.21.1",
+    "swig": "^1.4.2",
+    "uglify-js": "^2.5.0",
+    "node-sass": "^3.4.0",
+    "metalsmith-sass": "^1.3.0",
+    "postcss-move-media":        "latest"
   },
-
   "devDependencies": {
-    "babel":                     "^5.8.23"
-  }
+    "babel": "^5.8.23"
+  },
+  "gitHead": "361ff9032dfdc0785ed610492fc15be12ef6b5ba",
+  "readme": "# Metalsmith Bundle [![Dependency Status](https://img.shields.io/gemnasium/unindented/metalsmith-bundle.svg)](https://gemnasium.com/unindented/metalsmith-bundle)\n\nBundle of Metalsmith plugins.\n\n\n## Meta\n\n* Code: `git clone git://github.com/unindented/metalsmith-bundle.git`\n* Home: <https://github.com/unindented/metalsmith-bundle/>\n\n\n## Contributors\n\nDaniel Perez Alvarez ([unindented@gmail.com](mailto:unindented@gmail.com))\n\n\n## License\n\nCopyright (c) 2015 Daniel Perez Alvarez ([unindented.org](https://unindented.org/)). This is free software, and may be redistributed under the terms specified in athe LICENSE file.\n",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/unindented/metalsmith-bundle/issues"
+  },
+  "homepage": "https://github.com/unindented/metalsmith-bundle#readme",
+  "_id": "metalsmith-bundle@1.0.4",
+  "_shasum": "a2f78221ae8c846c32bdc51d0efd079807f8261d",
+  "_from": "behaba/metalsmith-bundle",
+  "_resolved": "git+https://github.com/behaba/metalsmith-bundle.git#09791c271df9479ae8038aa7669962bdc3c8bd55"
 }

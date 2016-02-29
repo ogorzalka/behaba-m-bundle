@@ -120,5 +120,5 @@
   // exposing node-sass types for custom functions. see:
   // https://github.com/stevenschobert/metalsmith-sass/pull#21
   plugin.types = sass.types;
-  module.exports = plugin['default'];
+  module.exports = plugin;
 })();
