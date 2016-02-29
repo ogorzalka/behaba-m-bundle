@@ -2,6 +2,7 @@
 
 import postcss from 'postcss';
 import pcsvgfallback from 'postcss-svg-fallback';
+import pcmovemedia from 'postcss-move-media';
 import pcprefix from 'autoprefixer';
 
 import {parallel} from 'async';
@@ -22,6 +23,7 @@ export default function (options) {
     try {
       postcss()
         .use(pcsvgfallback(options['svg_fallback']))
+        .use(pcmovemedia)
         .use(pcprefix)
         .process(contents)
         .then(function(processor) {
