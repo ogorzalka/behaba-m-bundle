@@ -59,20 +59,21 @@
     "swig": "^1.4.2",
     "uglify-js": "^2.5.0",
     "node-sass": "^3.4.0",
-    "metalsmith-sass": "^1.3.0"
+    "metalsmith-sass": "^1.3.0",
+    "postcss-move-media":        "latest"
   },
   "devDependencies": {
     "babel": "^5.8.23"
   },
   "gitHead": "361ff9032dfdc0785ed610492fc15be12ef6b5ba",
-  "readme": "# Metalsmith Bundle [![Dependency Status](https://img.shields.io/gemnasium/unindented/metalsmith-bundle.svg)](https://gemnasium.com/unindented/metalsmith-bundle)\n\nBundle of Metalsmith plugins.\n\n\n## Meta\n\n* Code: `git clone git://github.com/unindented/metalsmith-bundle.git`\n* Home: <https://github.com/unindented/metalsmith-bundle/>\n\n\n## Contributors\n\nDaniel Perez Alvarez ([unindented@gmail.com](mailto:unindented@gmail.com))\n\n\n## License\n\nCopyright (c) 2015 Daniel Perez Alvarez ([unindented.org](https://unindented.org/)). This is free software, and may be redistributed under the terms specified in the LICENSE file.\n",
+  "readme": "# Metalsmith Bundle [![Dependency Status](https://img.shields.io/gemnasium/unindented/metalsmith-bundle.svg)](https://gemnasium.com/unindented/metalsmith-bundle)\n\nBundle of Metalsmith plugins.\n\n\n## Meta\n\n* Code: `git clone git://github.com/unindented/metalsmith-bundle.git`\n* Home: <https://github.com/unindented/metalsmith-bundle/>\n\n\n## Contributors\n\nDaniel Perez Alvarez ([unindented@gmail.com](mailto:unindented@gmail.com))\n\n\n## License\n\nCopyright (c) 2015 Daniel Perez Alvarez ([unindented.org](https://unindented.org/)). This is free software, and may be redistributed under the terms specified in athe LICENSE file.\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/unindented/metalsmith-bundle/issues"
   },
   "homepage": "https://github.com/unindented/metalsmith-bundle#readme",
   "_id": "metalsmith-bundle@1.0.4",
-  "_shasum": "4c12c16fe5b9554fcf08d25e21e5f8b4a0f781d2",
+  "_shasum": "a2f78221ae8c846c32bdc51d0efd079807f8261d",
   "_from": "behaba/metalsmith-bundle",
-  "_resolved": "git+https://github.com/behaba/metalsmith-bundle.git#659bee268e28ba5fd150d18758ab4eeb58f0ef8a"
+  "_resolved": "git+https://github.com/behaba/metalsmith-bundle.git#09791c271df9479ae8038aa7669962bdc3c8bd55"
 }
