@@ -60,7 +60,13 @@ exports['default'] = function (options) {
     // Builds a url
     function buildUrl(file, frontmatter) {
       // Convert any windows backslash paths to slash paths
-      var normalizedFile = slash(file);
+      var normalizedFile = slash(file),
+          s_normalizedFile = S(normalizedFile);
+
+      // Remove some expression (ex. folder)
+      if (contentFolder) {
+        s_normalizedFile = s_normalizedFile.replace(contentFolder, '');
+      }
 
       // Frontmatter settings take precedence
       if (is.string(frontmatter.canonical)) {
@@ -69,19 +75,13 @@ exports['default'] = function (options) {
 
       // Remove index.html if necessary
       if (omitIndex && path.basename(normalizedFile) === 'index.html') {
-        return S(normalizedFile).chompRight('index.html').s;
+        return s_normalizedFile.chompRight('index.html').s;
       }
 
       // Remove extension if necessary
       if (omitExtension) {
-        return S(normalizedFile).chompRight(path.extname(normalizedFile)).s;
+        return s_normalizedFile.chompRight(path.extname(normalizedFile)).s;
       }
-
-      // Remove some expression (ex. folder)
-      if (contentFolder) {
-        return S(normalizedFile).replace(contentFolder, '');
-      }
-
       // Otherwise just use the normalized 'file' entry
       return normalizedFile;
     }
