@@ -1,29 +1,68 @@
-'use strict';
-
+/**
+ * Dependencies
+ */
 var identity = require('lodash.identity');
+var get = require('lodash.get');
 var is = require('is');
 var match = require('multimatch');
 var path = require('path');
 var pick = require('lodash.pick');
 var S = require('string');
-var slash = require('slash');
 var sm = require('sitemap');
 
-import {debug,extend} from '../../utils';
-let log = debug('metalsmith:mapsite');
+/**
+ * Export plugin
+ */
+module.exports = plugin;
 
-const DEFAULTS = {
-  output: 'sitemap.xml',
-  pattern: '**/*.html'
-};
+/**
+ * Metalsmith plugin for generating a sitemap.
+ *
+ * @param {String or Object} options
+ *   @property {Date} lastmod (optional)
+ *   @property {String} changefreq (optional)
+ *   @property {Boolean} omitExtension (optional)
+ *   @property {Boolean} omitIndex (optional)
+ *   @property {String} hostname
+ *   @property {String} output (optional)
+ *   @property {String} pattern (optional)
+ *   @property {String} priority (optional)
+ *   @property {String} urlProperty (optional)
+ *   @property {String} modifiedProperty (optional)
+ * @return {Function}
+ */
+function plugin(opts){
+  /**
+   * Init
+   */
+  opts = opts || {};
 
+  // Accept string option to specify the hostname
+  if (typeof opts === 'string') {
+    opts = { hostname: opts };
+  }
 
-export default function (options) {
-  options = extend({}, DEFAULTS, options);
+  // A hostname should be specified
+  if (!opts.hostname) {
+    throw new Error('"hostname" option required');
+  }
 
-  let {changefreq, hostname, lastmod, contentFolder, omitExtension, omitIndex, output, pattern, priority} = options;
+  // Map options to local variables and set defaults
+  var changefreq = opts.changefreq;
+  var hostname = opts.hostname;
+  var lastmod = opts.lastmod;
+  var omitExtension = opts.omitExtension;
+  var omitIndex = opts.omitIndex;
+  var output = opts.output || 'sitemap.xml';
+  var pattern = opts.pattern || '**/*.html';
+  var priority = opts.priority;
+  var urlProperty = opts.urlProperty || 'canonical';
+  var modifiedProperty = opts.modifiedProperty || 'lastmod';
 
-  return function (files, metalsmith, done) {
+  /**
+   * Main plugin function
+   */
+  return function(files, metalsmith, done) {
     // Create sitemap object
     var sitemap = sm.createSitemap ({
       hostname: hostname
@@ -46,32 +85,25 @@ export default function (options) {
 
     // Builds a url
     function buildUrl(file, frontmatter) {
-      // Convert any windows backslash paths to slash paths
-      var normalizedFile = slash(file),
-          s_normalizedFile = S(normalizedFile);
-
-
-      // Remove some expression (ex. folder)
-      if (contentFolder) {
-        s_normalizedFile = s_normalizedFile.replace(contentFolder, '');
-      }
-      
       // Frontmatter settings take precedence
-      if (is.string(frontmatter.canonical)) {
-        return frontmatter.canonical;
+      var canonicalUrl = get(frontmatter, urlProperty);
+      console.log(frontmatter.permalink);
+      if (is.string(canonicalUrl)) {
+        return canonicalUrl;
       }
 
       // Remove index.html if necessary
-      if (omitIndex && path.basename(normalizedFile) === 'index.html') {
-        return s_normalizedFile.chompRight('index.html').s;
+      if (omitIndex && path.basename(file) === 'index.html') {
+        return S(file).chompRight('index.html').s;
       }
 
       // Remove extension if necessary
       if (omitExtension) {
-        return s_normalizedFile.chompRight(path.extname(normalizedFile)).s;
+        return S(file).chompRight(path.extname(file)).s;
       }
-      // Otherwise just use the normalized 'file' entry
-      return normalizedFile;
+
+      // Otherwise just use 'file'
+      return file;
     }
 
     Object.keys(files).forEach(function(file) {
@@ -87,7 +119,7 @@ export default function (options) {
       var entry = pick({
         changefreq: frontmatter.changefreq || changefreq,
         priority: frontmatter.priority || priority,
-        lastmod: frontmatter.lastmod || lastmod
+        lastmod: get(frontmatter, modifiedProperty) || lastmod
       }, identity);
 
       // Add the url (which is allowed to be falsy)
@@ -101,7 +133,7 @@ export default function (options) {
     files[output] = {
       contents: new Buffer(sitemap.toString())
     };
-    
+
     done();
   };
 }

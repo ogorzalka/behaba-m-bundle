@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "is": "^3.0.1",
+    "lodash.get": "^3.7.0",
     "lodash.identity": "^3.0.0",
     "lodash.pick": "^3.1.0",
     "sitemap": "^1.4.0",
@@ -60,7 +61,7 @@
     "uglify-js": "^2.5.0",
     "node-sass": "^3.4.0",
     "metalsmith-sass": "^1.3.0",
-    "postcss-move-media":        "latest"
+    "postcss-move-media": "latest"
   },
   "devDependencies": {
     "babel": "^5.8.23"
@@ -73,7 +74,7 @@
   },
   "homepage": "https://github.com/unindented/metalsmith-bundle#readme",
   "_id": "metalsmith-bundle@1.0.4",
-  "_shasum": "a2f78221ae8c846c32bdc51d0efd079807f8261d",
+  "_shasum": "189311092892b3746295c79af760d1ceabaa9b85",
   "_from": "behaba/metalsmith-bundle",
-  "_resolved": "git+https://github.com/behaba/metalsmith-bundle.git#09791c271df9479ae8038aa7669962bdc3c8bd55"
+  "_resolved": "git+https://github.com/behaba/metalsmith-bundle.git#f777c553091fc72bad57936dad0a9006b4cc2f39"
 }
