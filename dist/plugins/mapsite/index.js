@@ -64,9 +64,11 @@ exports['default'] = function (options) {
           s_normalizedFile = S(normalizedFile);
 
       // Remove some expression (ex. folder)
-      if (contentFolder) {
+      console.log('Content folder: '+ contentFolder);
+      //if (contentFolder) {
         s_normalizedFile = s_normalizedFile.replace(contentFolder, '');
-      }
+      //}
+      s_normalizedFile = s_normalizedFile.replace('contents/', '');
 
       // Frontmatter settings take precedence
       if (is.string(frontmatter.canonical)) {
