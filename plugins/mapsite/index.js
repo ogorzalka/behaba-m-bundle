@@ -87,7 +87,7 @@ function plugin(opts){
     function buildUrl(file, frontmatter) {
       // Frontmatter settings take precedence
       var canonicalUrl = get(frontmatter, urlProperty);
-      console.log(frontmatter.permalink);
+
       if (is.string(canonicalUrl)) {
         return canonicalUrl;
       }
