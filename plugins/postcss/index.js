@@ -1,7 +1,6 @@
 'use strict';
 
 import postcss from 'postcss';
-import pcsvgfallback from 'postcss-svg-fallback';
 import pcmovemedia from 'postcss-move-media';
 import pcprefix from 'autoprefixer';
 
@@ -22,7 +21,6 @@ export default function (options) {
   let processor = function (contents, callback) {
     try {
       postcss()
-        .use(pcsvgfallback(options['svg_fallback']))
         .use(pcmovemedia)
         .use(pcprefix)
         .process(contents)

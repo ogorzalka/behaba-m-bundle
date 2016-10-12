@@ -10,9 +10,9 @@ var _postcss = require('postcss');
 
 var _postcss2 = _interopRequireDefault(_postcss);
 
-var _postcssSvgFallback = require('postcss-svg-fallback');
+var _postcssMoveMedia = require('postcss-move-media');
 
-var _postcssSvgFallback2 = _interopRequireDefault(_postcssSvgFallback);
+var _postcssMoveMedia2 = _interopRequireDefault(_postcssMoveMedia);
 
 var _autoprefixer = require('autoprefixer');
 
@@ -36,7 +36,7 @@ exports['default'] = function (options) {
 
   var processor = function processor(contents, callback) {
     try {
-      (0, _postcss2['default'])().use((0, _postcssSvgFallback2['default'])(options['svg_fallback'])).use(_autoprefixer2['default']).process(contents).then(function (processor) {
+      (0, _postcss2['default'])().use(_postcssMoveMedia2['default']).use(_autoprefixer2['default']).process(contents).then(function (processor) {
         var result = processor.toString();
         callback(null, result);
       });
