@@ -79,12 +79,27 @@ exports["default"] = function (options) {
         };
       });
 
+      var htmlImgObject = '';
+      htmlImgObject = '<div class="backend-datas" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">';
+      if ($('img').eq(0).length) {
+        htmlImgObject += '<meta itemprop="url" content="https://www.behaba.com'+$('img').eq(0).attr('src')+'"/>';
+        htmlImgObject += '<meta itemprop="width" content="'+$('img').eq(0).attr('width')+'"/>';
+        htmlImgObject += '<meta itemprop="height" content="'+$('img').eq(0).attr('height')+'"/>';
+      }
+      else {
+        htmlImgObject += '<meta itemprop="url" content="https://www.behaba.com/assets/images/placeholder.png"/>';
+        htmlImgObject += '<meta itemprop="width" content="300"/>';
+        htmlImgObject += '<meta itemprop="height" content="250"/>';
+      }
+      htmlImgObject += '</div>';
+
       //
       $(tags.amp.join(',')).each(function () {
         this.name = 'amp-' + this.name;
       });
 
       html = $.html();
+      html += htmlImgObject;
 
       return html;
     } catch (err) {
@@ -108,7 +123,10 @@ exports["default"] = function (options) {
         amp_file[filename].template = template;
         amp_file[filename].canonical = amp_datas.link;
         files[path].amp_link = '/amp' + amp_datas.link;
+        //files[path].link = '/amp' + amp_datas.link;
         amp_file[filename].permalink = '/amp' + amp_datas.link;
+        amp_file[filename].date = amp_datas.date;
+        amp_file[filename].postdate = amp_datas.postdate;
         return amp_file;
       } else {
         return amp_file;
