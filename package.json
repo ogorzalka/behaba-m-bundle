@@ -52,7 +52,7 @@
     "multimatch": "^2.0.0",
     "minimatch": "^3.0.0",
     "postcss": "^5.0.10",
-    "sprity": "^1.0.8",
+    "sprity": "^1.0.7",
     "sprity-sass": "^1.0.4",
     "sprity-gm": "^1.0.2",
     "gm": "^1.21.1",
