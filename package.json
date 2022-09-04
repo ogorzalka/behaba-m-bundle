@@ -46,7 +46,7 @@
     "markdown-it-mark": "^2.0.0",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
-    "metalsmith": "2.0.1",
+    "metalsmith": "2.0.10",
     "moment": "^2.10.6",
     "minimist": "^1.2.0",
     "multimatch": "^2.0.0",
